@@ -38,6 +38,6 @@ axes[2].set_ylabel("BMI", fontsize=11)
 axes[2].set_title("Weight vs BMI", fontsize=12)
 axes[2].legend(frameon=True, fontsize=10)
 
-plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.tight_layout(rect=[0, 0, 1, 0.95], pad=2.0)
 plt.show()
 
