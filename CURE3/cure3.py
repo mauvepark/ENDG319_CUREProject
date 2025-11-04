@@ -12,7 +12,7 @@ low = df[df["health_risk"].str.lower() == "low"]
 high = df[df["health_risk"].str.lower() == "high"]
 
 # figures
-fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+fig, axes = plt.subplots(1, 4, figsize=(18, 5))
 
 # plot1: bmi vs health risk histogram
 axes[0].hist(low["bmi"], bins=20, histtype="step", color="blue", label="Low Risk", linewidth=1.5)
@@ -37,6 +37,14 @@ axes[2].set_xlabel("Weight (kg)", fontsize=11)
 axes[2].set_ylabel("BMI", fontsize=11)
 axes[2].set_title("Weight vs BMI", fontsize=12)
 axes[2].legend(frameon=True, fontsize=10)
+
+# plot4: sleep vs bmi scatter
+axes[3].scatter(low["sleep"], low["bmi"], color="blue", s=8, alpha=0.6, label="Low Risk", edgecolor="none")
+axes[3].scatter(high["sleep"], high["bmi"], color="orange", s=8, alpha=0.6, label="High Risk", edgecolor="none")
+axes[3].set_xlabel("Sleep (hours)", fontsize=11)
+axes[3].set_ylabel("BMI", fontsize=11)
+axes[3].set_title("Sleep vs BMI", fontsize=12)
+axes[3].legend(frameon=True, fontsize=10)
 
 plt.tight_layout(rect=[0, 0, 1, 0.95], pad=2.0)
 plt.show()
